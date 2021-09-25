@@ -3,8 +3,8 @@ import get_data
 import tensorflow as tf
 
 if __name__ == '__main__':
-    path_to_dataset = "/Users/daoud.kadoch/Documents/counterfeit-detection-with-cnn/train/"
-    #path_to_dataset = "/home/ubuntu/counterfeit-detection-with-cnn/train/"
+    #path_to_dataset = "/Users/daoud.kadoch/Documents/counterfeit-detection-with-cnn/train/"
+    path_to_dataset = "/home/ubuntu/counterfeit-detection-with-cnn/train/"
     x_train_1, x_train_2, y_train = get_data.get_siamese_data(path_to_dataset)
 
     model = model.get_SiameseModel()
