@@ -1,6 +1,6 @@
 import tensorflow as tf
-from keras.regularizers import l2
-from keras import backend as K
+from tensorflow.keras.regularizers import l2
+from tensorflow.keras import backend as K
 
 def get_SiameseModel():
 
