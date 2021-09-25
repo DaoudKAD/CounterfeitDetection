@@ -1,6 +1,7 @@
 import model
 import get_data
 import tensorflow as tf
+import os
 
 if __name__ == '__main__':
     #path_to_dataset = "/Users/daoud.kadoch/Documents/counterfeit-detection-with-cnn/train/"
@@ -11,6 +12,15 @@ if __name__ == '__main__':
 
     optimizer = tf.keras.optimizers.Adam(lr=0.00006)
     model.compile(loss="binary_crossentropy", metrics="accuracy", optimizer=optimizer)
+
+    model_check = tf.keras.callbacks.ModelCheckpoint(
+        filepath=os.path.join("home/ubuntu/"+"cp.ckpt"),
+        save_weights_only=True,
+        monitor='val_accuracy',
+        mode='max',
+        save_best_only=True,
+        verbose=1
+    )
 
     model.fit(
         x=[x_train_1, x_train_2], y=y_train, batch_size=32, epochs=10, verbose=1,
