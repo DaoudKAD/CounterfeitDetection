@@ -10,7 +10,7 @@ if __name__ == '__main__':
 
     model = model.get_SiameseModel()
 
-    optimizer = tf.keras.optimizers.Adam(lr=0.00006)
+    optimizer = tf.keras.optimizers.Adam(lr=3e-4)
     model.compile(loss="binary_crossentropy", metrics="accuracy", optimizer=optimizer)
 
     model_check = tf.keras.callbacks.ModelCheckpoint(
@@ -23,6 +23,6 @@ if __name__ == '__main__':
     )
 
     model.fit(
-        x=[x_train_1, x_train_2], y=y_train, batch_size=32, epochs=10, verbose=1,
+        x=[x_train_1, x_train_2], y=y_train, batch_size=32, epochs=200, verbose=1,
         validation_split=0.2, shuffle=True
     )

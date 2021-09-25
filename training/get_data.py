@@ -41,8 +41,6 @@ def get_siamese_data(path_to_dataset):
 
         cpt_img += 1
 
-        if cpt_img == 1000:
-            break
 
         print(str(cpt_img)+" / "+str(nb_images))
 
