@@ -39,6 +39,9 @@ def get_siamese_data(path_to_dataset):
             x_train_2.append(img_scan)
             y_train.append(0)
 
+        if cpt_img == 10 :
+            break
+
         cpt_img += 1
 
 
