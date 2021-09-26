@@ -4,13 +4,15 @@ from tensorflow.keras import backend as K
 
 def get_SiameseModel():
 
+    input_shape = (100, 100, 3)
+
     # input pour le scan et pour l'image
-    scan_input = tf.keras.layers.Input((100, 100, 3))
-    image_input = tf.keras.layers.Input((100, 100, 3))
+    scan_input = tf.keras.layers.Input(input_shape)
+    image_input = tf.keras.layers.Input(input_shape)
 
     # CNN
     model = tf.keras.Sequential()
-    model.add(tf.keras.layers.Conv2D(64, (10, 10), activation='relu', input_shape=(100, 100, 3), kernel_regularizer=l2(2e-4)))
+    model.add(tf.keras.layers.Conv2D(64, (10, 10), activation='relu', input_shape=input_shape, kernel_regularizer=l2(2e-4)))
     model.add(tf.keras.layers.MaxPooling2D())
     model.add(tf.keras.layers.Conv2D(128, (7, 7), activation='relu', kernel_regularizer=l2(2e-4)))
     model.add(tf.keras.layers.MaxPooling2D())
