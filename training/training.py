@@ -23,6 +23,6 @@ if __name__ == '__main__':
     )
 
     model.fit(
-        x=[x_train_1, x_train_2], y=y_train, batch_size=64, epochs=200, verbose=1,
+        x=[x_train_1, x_train_2], y=y_train, batch_size=32, epochs=1000, verbose=1,
         validation_split=0.2, shuffle=True, callbacks=[model_check]
     )

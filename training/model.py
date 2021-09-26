@@ -14,16 +14,15 @@ def get_SiameseModel():
     # 64 128 128 256
     # CNN
     model = tf.keras.Sequential()
-    model.add(tf.keras.layers.Conv2D(64, (5, 5), activation='relu', input_shape=input_shape, kernel_regularizer=l2(2e-4)))
+    model.add(tf.keras.layers.Conv2D(64, (10, 10), activation='relu', input_shape=input_shape, kernel_regularizer=l2(2e-4)))
     model.add(tf.keras.layers.MaxPooling2D())
-    model.add(tf.keras.layers.Conv2D(128, (5, 5), activation='relu', kernel_regularizer=l2(2e-4)))
+    model.add(tf.keras.layers.Conv2D(128, (7, 7), activation='relu', kernel_regularizer=l2(2e-4)))
     model.add(tf.keras.layers.MaxPooling2D())
-    model.add(tf.keras.layers.Conv2D(256, (3, 3), activation='relu', kernel_regularizer=l2(2e-4)))
+    model.add(tf.keras.layers.Conv2D(128, (4, 4), activation='relu', kernel_regularizer=l2(2e-4)))
     model.add(tf.keras.layers.MaxPooling2D())
-    model.add(tf.keras.layers.Conv2D(512, (4, 4), activation='relu', kernel_regularizer=l2(2e-4)))
+    model.add(tf.keras.layers.Conv2D(256, (4, 4), activation='relu', kernel_regularizer=l2(2e-4)))
     model.add(tf.keras.layers.Flatten())
     model.add(tf.keras.layers.Dense(4096, activation='sigmoid', kernel_regularizer=l2(1e-3)))
-    model.add(tf.keras.layers.Dense(1024, activation='sigmoid', kernel_regularizer=l2(1e-3)))
 
     # images encodées par le CNN
     scan_encoded = model(scan_input)
