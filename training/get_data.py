@@ -42,6 +42,8 @@ def get_siamese_data(path_to_dataset):
         if cpt_img == 10 :
             break
 
+        if cpt_img == 10:
+            break
         cpt_img += 1
 
 

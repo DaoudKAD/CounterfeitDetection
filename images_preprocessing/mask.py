@@ -15,7 +15,7 @@ def apply_mask(path_to_dataset, type):
         print(img_filename+" : masked !")
 
 if __name__ == '__main__':
-    path = "/Users/daoud.kadoch/Documents/counterfeit-detection-with-cnn/train/"
+    path = "/Users/daoud.kadoch/Documents/counterfeit-detection-with-cnn/test/"
     type = "scan"
     apply_mask(path, type)
 

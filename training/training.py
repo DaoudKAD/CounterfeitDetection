@@ -4,8 +4,8 @@ import tensorflow as tf
 import os
 
 if __name__ == '__main__':
-    #path_to_dataset = "/Users/daoud.kadoch/Documents/counterfeit-detection-with-cnn/train/"
-    path_to_dataset = "/home/ubuntu/counterfeit-detection-with-cnn/train/"
+    path_to_dataset = "/Users/daoud.kadoch/Documents/counterfeit-detection-with-cnn/train/"
+    #path_to_dataset = "/home/ubuntu/counterfeit-detection-with-cnn/train/"
     x_train_1, x_train_2, y_train = get_data.get_siamese_data(path_to_dataset)
 
     model = model.get_SiameseModel()
@@ -14,7 +14,7 @@ if __name__ == '__main__':
     model.compile(loss="binary_crossentropy", metrics="accuracy", optimizer=optimizer)
 
     model_check = tf.keras.callbacks.ModelCheckpoint(
-        filepath=os.path.join("./models_saved/cp.ckpt"),
+        filepath=os.path.join("./models_saved/"),
         save_weights_only=True,
         monitor='val_accuracy',
         mode='max',
@@ -23,6 +23,8 @@ if __name__ == '__main__':
     )
 
     model.fit(
-        x=[x_train_1, x_train_2], y=y_train, batch_size=32, epochs=200, verbose=1,
+        x=[x_train_1, x_train_2], y=y_train, batch_size=32, epochs=10, verbose=1,
         validation_split=0.2, shuffle=True, callbacks=[model_check]
     )
+
+    #model.save_weights("./models_saved/")
