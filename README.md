@@ -19,5 +19,5 @@ Fake vs. Genuine label detection with Siamese neural networks
 
 ## Author
 Author of the project 
-* **Daoud Kadoch** _alias_ [@daoud.kadoch](https://gitlab.com/daoud.kadoch)
+* **Daoud Kadoch** _alias_ [@daoud.kadoch](https://github.com/DaoudKAD)
 
