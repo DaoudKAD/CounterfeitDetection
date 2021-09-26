@@ -10,6 +10,8 @@ def get_SiameseModel():
     scan_input = tf.keras.layers.Input(input_shape)
     image_input = tf.keras.layers.Input(input_shape)
 
+    """
+    # 64 128 128 256
     # CNN
     model = tf.keras.Sequential()
     model.add(tf.keras.layers.Conv2D(64, (10, 10), activation='relu', input_shape=input_shape, kernel_regularizer=l2(2e-4)))
@@ -21,6 +23,16 @@ def get_SiameseModel():
     model.add(tf.keras.layers.Conv2D(256, (4, 4), activation='relu', kernel_regularizer=l2(2e-4)))
     model.add(tf.keras.layers.Flatten())
     model.add(tf.keras.layers.Dense(4096, activation='sigmoid', kernel_regularizer=l2(1e-3)))
+    """
+
+    model = tf.keras.applications.inception_v3.InceptionV3(
+        include_top=False, weights='imagenet', input_tensor=None,
+        input_shape=input_shape, pooling='max', classes=1,
+        classifier_activation=None
+    )
+
+    model.global_average_layer = tf.keras.layers.Flatten(name='flatten')  # tf.keras.layers.GlobalAveragePooling2D()
+    #model.out = tf.keras.layers.Dense(1, activation='sigmoid', name='output')
 
     # images encodées par le CNN
     scan_encoded = model(scan_input)

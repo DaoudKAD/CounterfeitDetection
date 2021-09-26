@@ -34,11 +34,15 @@ def get_siamese_data(path_to_dataset):
 
     for img_filename in os.listdir(directory):
         img_filename = img_filename.decode('utf-8')
+        id_img_user = int(img_filename.split(".")[0])
         img_user = cv2.imread(path_to_dataset + "img/" + img_filename)
         img_user = cv2.resize(img_user, (100, 100))
         img_user = np.array(img_user) / 255.0
 
         id_img_scan = random.randint(0, nb_images - 1)
+        while id_img_scan == id_img_user :
+            id_img_scan = random.randint(0, nb_images - 1)
+
         img_scan = cv2.imread(path_to_dataset + "scan/" + str(id_img_scan) + ".jpg")
         img_scan = cv2.resize(img_scan, (100, 100))
         img_scan = np.array(img_scan) / 255.0

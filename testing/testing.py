@@ -42,7 +42,7 @@ def generate_prediction_test(path_to_dataset, model):
 
 if __name__ == '__main__':
 
-    path_to_model = "/Users/daoud.kadoch/PycharmProjects/CounterfeitDetection/training/models_saved/"
+    path_to_model = "/training/models_saved_best/"
     model = models.get_SiameseModel()
     model.built = True
     model.load_weights(path_to_model)
