@@ -1,10 +1,9 @@
 # Kaggle Competition : CounterfeitDetection
 
 Fake vs. Genuine label detection with Siamese neural networks
-
-3rd place in the ranking
-Accuracy test obtained : 0.98618
-
+- Results : 
+  - 3rd place in the ranking
+  - Accuracy test obtained : 0.98618
 
 ### Installation
 
