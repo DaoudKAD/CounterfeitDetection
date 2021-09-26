@@ -5,6 +5,14 @@ import random
 
 
 def get_siamese_data(path_to_dataset):
+    """ Retourne des données en paire associées au format d'un modèle siamois
+        Params:
+            path_to_dataset (str): chemin menant au dataset de train
+        Return:
+            x_train_1 (np.array) : premier élément de la paire
+            x_train_2 (np.array) : second élément de la paire
+            y_train (np.array) : label associé à la paire
+    """
 
     x_train_1 = []
     x_train_2 = []
@@ -56,9 +64,3 @@ def get_siamese_data(path_to_dataset):
         print(str(cpt_img)+" / "+str(nb_images*2))
 
     return np.array(x_train_1), np.array(x_train_2), np.array(y_train)
-
-"""
-if __name__ == '__main__':
-    path_to_dataset = "/Users/daoud.kadoch/Documents/counterfeit-detection-with-cnn/train/"
-    x_train_1, x_train_2, y_train = get_siamese_data(path_to_dataset)
-"""

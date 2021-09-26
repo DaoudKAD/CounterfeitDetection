@@ -2,7 +2,14 @@ import tensorflow as tf
 from tensorflow.keras.regularizers import l2
 from tensorflow.keras import backend as K
 
+
 def get_SiameseModel():
+    """ Retourne un réseau de neurones siamois
+        Params:
+            None
+        Return:
+            siamese_model (tf.keras.Model) : modèle siamois
+    """
 
     input_shape = (100, 100, 3)
 
@@ -11,7 +18,6 @@ def get_SiameseModel():
     image_input = tf.keras.layers.Input(input_shape)
 
 
-    # 64 128 128 256
     # CNN
     model = tf.keras.Sequential()
     model.add(tf.keras.layers.Conv2D(64, (10, 10), activation='relu', input_shape=input_shape, kernel_regularizer=l2(2e-4)))

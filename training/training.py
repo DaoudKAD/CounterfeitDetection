@@ -14,7 +14,7 @@ if __name__ == '__main__':
     model.compile(loss="binary_crossentropy", metrics="accuracy", optimizer=optimizer)
 
     model_check = tf.keras.callbacks.ModelCheckpoint(
-        filepath=os.path.join("models_saved_best/"),
+        filepath=os.path.join("models_saved/"),
         save_weights_only=True,
         monitor='val_accuracy',
         mode='max',

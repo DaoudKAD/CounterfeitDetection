@@ -4,9 +4,17 @@ import numpy as np
 import cv2
 import os
 import pandas as pd
+import tensorflow as tf
 
 
-def generate_prediction_test(path_to_dataset, model):
+def generate_prediction_test(path_to_dataset:str, model:tf.keras.Model):
+    """ Génére un fichier csv contenant les prédictions du modèle sur les données de test
+        Params:
+            path_to_dataset (str): chemin menant au dataset de test
+            model (tf.keras.Model): modèle avec ses poids chargés
+        Return:
+            None
+    """
 
     df = pd.DataFrame()
     id = []
@@ -37,7 +45,7 @@ def generate_prediction_test(path_to_dataset, model):
 
     df["id"] = id
     df["prediction"] = prediction
-    df.to_csv("predictions.csv", index=False)
+    df.to_csv("predictions.csv", index=False) # création du csv de prédiction des données de test
 
 
 if __name__ == '__main__':
@@ -45,12 +53,8 @@ if __name__ == '__main__':
     path_to_model = "/training/models_saved_best/"
     model = models.get_SiameseModel()
     model.built = True
-    model.load_weights(path_to_model)
+    model.load_weights(path_to_model) # chargement des poids du modèle
 
     path_to_dataset = "/Users/daoud.kadoch/Documents/counterfeit-detection-with-cnn/test/"
 
-    #res = model([np.zeros((1, 100, 100, 3)), np.zeros((1, 100, 100, 3))])
     generate_prediction_test(path_to_dataset, model)
-
-    #df = pd.read_csv("/Users/daoud.kadoch/Documents/counterfeit-detection-with-cnn/example_submission.csv")
-    #print(df)
