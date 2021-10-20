@@ -5,6 +5,8 @@ Fake vs. Genuine label detection with Siamese neural networks
   - 3rd place in the ranking
   - Accuracy test obtained : 0.98618
 
+![Alt Text](https://github.com/DaoudKAD/CounterfeitDetection/blob/master/cypheme_rank.png)
+
 ### Installation
 
 - Cloner le repos : 
